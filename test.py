@@ -1,4 +1,5 @@
 from flask import Flask, request
+import uuid
 
 app = Flask(__name__)
 
@@ -10,8 +11,16 @@ def somar():
     numero1 = json['numero1']
     numero2 = json['numero2']
     resultado = numero1 + numero2
-    lista_calculos.append(f"{numero1} + {numero2} = {resultado}")
+    lista_calculos.append({
+        "id": uuid.uuid4(),
+        "numero1": numero1,
+        "numero2": numero2,
+        "resultado": resultado})
     return {'resultado': resultado}
+
+@app.route("/calculos")
+def calcular():
+    return(lista_calculos)
 
 if __name__ == "__main__":
     app.run()

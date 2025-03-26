@@ -5,3 +5,8 @@ Content-Type: application/json
     "numero1": 12,
     "numero2": 8
 }
+
+###
+
+GET http://localhost:5000/calculos
+Content-Type: application/json
