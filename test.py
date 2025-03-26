@@ -13,14 +13,5 @@ def somar():
     lista_calculos.append(f"{numero1} + {numero2} = {resultado}")
     return {'resultado': resultado}
 
-@app.route("/calculos")
-def calcular():
-    if len(lista_calculos) != 0:
-        print(len(lista_calculos))
-        for item in lista_calculos:
-            return item
-    else:
-        return[]
-
 if __name__ == "__main__":
     app.run()
